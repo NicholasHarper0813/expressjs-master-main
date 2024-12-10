@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  var data = req.app.get('appData');
   var pagePhotos = [];
+  var data = req.app.get('appData');
   var pageSpeakers = data.speakers;
 
   data.speakers.forEach(function(item) {
@@ -16,7 +16,6 @@ router.get('/', function(req, res) {
     speakers: pageSpeakers,
     pageID: 'home'
   });
-
 });
 
 module.exports = router;
