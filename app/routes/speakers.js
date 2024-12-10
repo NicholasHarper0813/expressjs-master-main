@@ -3,8 +3,8 @@ var router = express.Router();
 
 router.get('/speakers', function(req, res) {
   var data = req.app.get('appData');
-  var pagePhotos = [];
   var pageSpeakers = data.speakers;
+  var pagePhotos = [];
 
   data.speakers.forEach(function(item) {
     pagePhotos = pagePhotos.concat(item.artwork);
@@ -20,8 +20,8 @@ router.get('/speakers', function(req, res) {
 
 router.get('/speakers/:speakerid', function(req, res) {
   var data = req.app.get('appData');
-  var pagePhotos = [];
   var pageSpeakers = [];
+  var pagePhotos = [];
 
   data.speakers.forEach(function(item) {
     if (item.shortname == req.params.speakerid) {
@@ -29,7 +29,7 @@ router.get('/speakers/:speakerid', function(req, res) {
       pagePhotos = pagePhotos.concat(item.artwork);
     }
   });
-
+  
   res.render('speakers', {
     pageTitle: 'Speaker Info',
     artwork: pagePhotos,
